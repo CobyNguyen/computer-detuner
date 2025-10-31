@@ -15,3 +15,4 @@ The main way we slow down your computer/program is by mining crypto. You get 0.0
 - Noah Clifford
 - Coby Nguyen
 - Abvishek Chalise
+- Mark Oluoni
