@@ -11,6 +11,7 @@ There are different modules that you can enable, such as:
 - GPU
 - Memory
 - Hard Drive
+
 With each of these, you can select the intensity of slowness you want.
 
 computer detuner is not responsible for any harm done to your computer.
