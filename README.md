@@ -11,6 +11,9 @@ This can make your computer up to 500x slower!
 # Monetization
 The main way we slow down your computer/program is by mining crypto. You get 0.001% of the coin mined.
 
+# How to Install
+
+
 # Credits
 - Noah Clifford
 - Coby Nguyen
