@@ -5,8 +5,16 @@ Is your computer not slow enough?
 Do you want longer compilation times?
 
 # Solution
-Computer detuner injects slowness into your computer or the specified program so you can slack off as much as you want.
-This can make your computer up to 500x slower!
+Computer detuner injects slowness into your computer.
+There are different modules that you can enable, such as:
+- CPU
+- GPU
+- Memory
+- Hard Drive
+
+With each of these, you can select the intensity of slowness you want.
+
+computer detuner is not responsible for any harm done to your computer.
 
 # Monetization
 The main way we slow down your computer/program is by mining crypto. You get 0.001% of the coin mined.
