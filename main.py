@@ -7,7 +7,7 @@ from modules.storage_module import connect_storage
 
 
 ctk.set_appearance_mode("System")  # Modes: system (default), light, dark
-ctk.set_default_color_theme("blue")  # Themes: blue (default), dark-blue, green
+ctk.set_default_color_theme("yellow.json")
 
 
 class ModuleRow:
@@ -69,7 +69,8 @@ class ModuleRow:
         threading.Thread(target=worker, daemon=True).start()
 
 
-app = ctk.CTk()
+app = ctk.CTk() # Create the main application window
+
 app.title("computer-detuner — Module Connector")
 app.geometry("900x320")
 
