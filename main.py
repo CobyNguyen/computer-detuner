@@ -20,19 +20,15 @@ class ModuleRow:
         self.label = ctk.CTkLabel(parent, text=name)
         self.label.grid(row=row, column=0, padx=8, pady=8, sticky="w")
 
-        self.enabled_var = ctk.BooleanVar(value=False)
-        self.switch = ctk.CTkSwitch(parent, text="Enable", variable=self.enabled_var)
-        self.switch.grid(row=row, column=1, padx=8, pady=8)
-
-        self.intensity = ctk.CTkSlider(parent, from_=0, to=100, number_of_steps=100)
-        self.intensity.set(50)
-        self.intensity.grid(row=row, column=2, padx=8, pady=8)
+        self.intensity = ctk.CTkSlider(parent, from_=1, to=5, number_of_steps=5)
+        self.intensity.set(5)
+        self.intensity.grid(row=row, column=1, padx=8, pady=8)
 
         self.btn = ctk.CTkButton(parent, text="Connect / Test", command=self.on_connect)
-        self.btn.grid(row=row, column=3, padx=8, pady=8)
+        self.btn.grid(row=row, column=2, padx=8, pady=8)
 
         self.status = ctk.CTkLabel(parent, text="Idle", anchor="w")
-        self.status.grid(row=row, column=4, padx=8, pady=8, sticky="w")
+        self.status.grid(row=row, column=3, padx=8, pady=8, sticky="w")
 
     def set_status(self, text, color=None):
         # update on main thread
@@ -42,9 +38,6 @@ class ModuleRow:
         app.after(0, _update)
 
     def on_connect(self):
-        if not self.enabled_var.get():
-            self.set_status("Disabled - enable first")
-            return
 
         intensity = int(self.intensity.get())
         self.btn.configure(state="disabled")
@@ -84,7 +77,7 @@ grid_frame = ctk.CTkFrame(container)
 grid_frame.pack(fill="both", expand=True)
 
 # header row
-headers = ["Module", "Enabled", "Intensity", "Action", "Status"]
+headers = ["Module", "Intensity", "Action", "Status"]
 for i, h in enumerate(headers):
     lbl = ctk.CTkLabel(grid_frame, text=h, fg_color=None)
     lbl.grid(row=0, column=i, padx=8, pady=6, sticky="w")
