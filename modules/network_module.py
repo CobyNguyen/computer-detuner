@@ -1,13 +1,11 @@
+"""Network module implementation (placeholder).
+
+Expose `connect_network(intensity:int) -> dict` for the UI to call.
+"""
 import time
-import requests   #pip3 install requests on vs terminal
 
-def slowdown(url, pause=4.0):   
-  print("checking internet connection. Be patient.")
-  time.sleep(pause)   #simulating slow network response
-  requests.get(url)
-  
-  
-  
-  
-  
 
+def connect_network(intensity: int = 5):
+	delay = 0.4 + (intensity / 100.0) * 1.0
+	time.sleep(min(delay, 5.0))
+	return {"success": True, "message": f"Network ready (intensity {intensity})"}
