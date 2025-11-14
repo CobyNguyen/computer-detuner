@@ -9,7 +9,7 @@ Computer detuner injects slowness into your computer.
 There are different modules that you can enable, such as:
 - CPU
 - GPU
-- Memory
+- Network
 - Hard Drive
 
 With each of these, you can select the intensity of slowness you want.
