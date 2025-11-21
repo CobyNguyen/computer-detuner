@@ -12,17 +12,17 @@
 
 Intensity sliders for each module
 
-Can run modules individually
+Can run modules individually and interfaces with each of them so the modules can be run
 
 # Module frameworks
 
-CPU - Runs multiple threads to slow down the CPU
+CPU - Runs multiple threads to slow down the CPU and the intensity determines how many threads are run at once
 
-GPU - Runs some intensive shaders to slow down the GPU
+GPU - Draws a bunch of 2d shapes with the intensity determining the resolution and number of shapes
 
-Hard drive - Reads and writes to several files at once to slow down the hard drive
+Hard drive - Reads and writes to several files at once to slow down the hard drive with the intensity determining how many files are read/written to at once
 
-Network - Limits the bandwith of network your computer can accept
+Network - Limits the bandwith of network your computer can accept by downloading a bunch of packets with the intensity determining how many packets are requested at once
 
 Each module has the following methods:
 
@@ -32,10 +32,10 @@ Each module has the following methods:
 
   CPU intensity - How many threads are run e.g. (1 = 100, 2 = 250, 3 = 500, 4 = 2000, 5 = 10000)
   
-  GPU intensity - How intensive the shader is which could be defined through a uniform variable e.g. (1 = 50mbps, 2 = 20mbps, 3 = 5mbps, 4 = 1mbps, 5 = 100kbps)
+  GPU intensity - Resolution and number of shapes run
   
-  Hard Drive intensity - How many files are written to at once e.g. (1 = 5, 2 = 10, 3 = 20, 4 = 50, 5 = 100)
+  Hard Drive intensity - How many files are written to at once e.g. (10 = 5, 2 = 50, 3 = 100, 4 = 250, 5 = 500)
   
-  Network intensity - How much bandwith is limited e.g. (1 = 50mbps, 2 = 20mbps, 3 = 5mbps, 4 = 1mbps, 5 = 100kbps)
+  Network intensity - How many packets are requested
   
      
