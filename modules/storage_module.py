@@ -1,11 +1,30 @@
-"""Storage module implementation (placeholder).
-
-Expose `connect_storage(intensity:int) -> dict` for the UI to call.
-"""
+# inital test for hard drive detuner
 import time
 
+intensityFileAmount = [10, 25, 50, 250, 500]
+demoTime : int = 10
 
-def connect_storage(intensity: int = 5):
-	delay = 0.4 + (intensity / 100.0) * 0.8
-	time.sleep(min(delay, 5.0))
-	return {"success": True, "message": f"Storage ready (intensity {intensity})"}
+def connect_storage(intensity : int = 1):
+    intensity = max(1, intensity)
+    intensity = min(5, intensity)
+    
+    print("Intensity is", intensity)
+    
+    intensityLoop = intensityFileAmount[intensity]
+    
+    for repeat in range(demoTime * 1000):
+    
+        for i in range(intensityLoop):
+            with open("glorp_clone_" + str(i + 1) + ".txt", "w") as file:
+                file.write("")
+        
+        for i in range(intensityLoop):
+            with open("glorp_clone_" + str(i + 1) + ".txt", "w") as file:
+                
+                with open("modules/resources/glorp.txt", "r") as file2: #path for glorp not tested
+                    value = str(file2.read())
+                    file.write(value)
+        
+        time.sleep(0.001)
+
+    return {"success": True, "message": f"Storage ready (intensity {intensity})"}
