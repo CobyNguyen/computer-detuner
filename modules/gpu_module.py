@@ -1,46 +1,67 @@
 import time
+import random
 
 def connect_gpu(intensity: int = 1):
-# Import here so Pylance doesn't freak out at file-level
-try:
-	import pygame
-except ImportError:
-	return {
-"success": False,
-"msg": "pygame is not installed"
-}
+    try:
+        import pygame
+    except ImportError:
+        return {
+            "success": False,
+            "msg": "pygame not installed"
+        }
 
-# Clamp intensity
-intensity = max(1, min(intensity, 5))
+    # Clamp intensity
+    intensity = max(1, min(intensity, 5))
 
-# Initialize pygame safely inside the function
-pygame.init()
+    # Your exact arrays from the screenshot:
+    resolutions = [256, 512, 1024, 2048, 4096]
+    num_of_shapes = [100, 1000, 5000, 10000, 50000]
 
-# Open a tiny window (low GPU load)
-screen = pygame.display.set_mode((200, 200))
-pygame.display.set_caption("GPU Detuner (Pygame)")
+    # Pick resolution + shape count based on intensity
+    res = resolutions[intensity - 1]
+    shapes = num_of_shapes[intensity - 1]
 
-width, height = 200, 200
-pixel_ops = intensity * 400 # safe GPU work
+    pygame.init()
+    screen = pygame.display.set_mode((res, res))
+    pygame.display.set_caption("GPU Detuner Pygame Render")
 
-# Draw random pixels
-for _ in range(pixel_ops):
-	x = pygame.math.randint(0, width-1)
-	y = pygame.math.randint(0, height-1)
-color = (pygame.math.randint(0,255),
-pygame.math.randint(0,255),
-pygame.math.randint(0,255))
-screen.set_at((x, y), color)
+    clock = pygame.time.Clock()
+    running = True
 
-pygame.display.flip()
+    # Run for a short moment to simulate GPU load
+    frame_limit = 10   # number of frames to render
 
-# Simulated GPU load delay
-time.sleep(0.1 * intensity)
+    frames = 0
+    while running and frames < frame_limit:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
 
-pygame.quit()
+        # Draw random circles (MATCHING YOUR CODE)
+        for _ in range(shapes):
+            pygame.draw.circle(
+                screen,
+                (
+                    random.random() * 255,
+                    random.random() * 255,
+                    random.random() * 255
+                ),
+                (
+                    random.random() * resolutions[intensity - 1],
+                    random.random() * resolutions[intensity - 1]
+                ),
+                10
+            )
 
-return {
-"success": True,
-"msg": f"Pygame GPU render at intensity {intensity}",
-"pixels_drawn": pixel_ops
-}
+        pygame.display.flip()
+        clock.tick(60)
+        frames += 1
+
+    pygame.quit()
+
+    return {
+        "success": True,
+        "msg": f"Pygame render complete at intensity {intensity}",
+        "resolution": res,
+        "shapes_drawn": shapes * frame_limit
+    }
