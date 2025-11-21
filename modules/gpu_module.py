@@ -3,9 +3,9 @@ import time
 def connect_gpu(intensity: int = 1):
 # Import here so Pylance doesn't freak out at file-level
 try:
-import pygame
+	import pygame
 except ImportError:
-return {
+	return {
 "success": False,
 "msg": "pygame is not installed"
 }
@@ -25,8 +25,8 @@ pixel_ops = intensity * 400 # safe GPU work
 
 # Draw random pixels
 for _ in range(pixel_ops):
-x = pygame.math.randint(0, width-1)
-y = pygame.math.randint(0, height-1)
+	x = pygame.math.randint(0, width-1)
+	y = pygame.math.randint(0, height-1)
 color = (pygame.math.randint(0,255),
 pygame.math.randint(0,255),
 pygame.math.randint(0,255))
@@ -37,7 +37,6 @@ pygame.display.flip()
 # Simulated GPU load delay
 time.sleep(0.1 * intensity)
 
-# No globals, no leaks
 pygame.quit()
 
 return {
