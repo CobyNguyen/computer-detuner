@@ -13,11 +13,10 @@ def connect_gpu(intensity: int = 1):
     # Clamp intensity
     intensity = max(1, min(intensity, 5))
 
-    # Your exact arrays from the screenshot:
     resolutions = [256, 512, 1024, 2048, 4096]
     num_of_shapes = [100, 1000, 5000, 10000, 50000]
 
-    # Pick resolution + shape count based on intensity
+    # resolution + shape count based on intensity
     res = resolutions[intensity - 1]
     shapes = num_of_shapes[intensity - 1]
 
@@ -28,7 +27,6 @@ def connect_gpu(intensity: int = 1):
     clock = pygame.time.Clock()
     running = True
 
-    # Run for a short moment to simulate GPU load
     frame_limit = 10   # number of frames to render
 
     frames = 0
@@ -37,7 +35,7 @@ def connect_gpu(intensity: int = 1):
             if event.type == pygame.QUIT:
                 running = False
 
-        # Draw random circles (MATCHING YOUR CODE)
+        # Draw random circles
         for _ in range(shapes):
             pygame.draw.circle(
                 screen,
