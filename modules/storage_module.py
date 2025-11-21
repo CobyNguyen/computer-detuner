@@ -1,28 +1,30 @@
 # inital test for hard drive detuner
 import time
 
-intensityFileAmount = [5, 10, 20, 50, 100]
+intensityFileAmount = [10, 25, 50, 250, 500]
 demoTime : int = 10
 
-def connect_storage(val : int = 1):
-    val = max(1, val)
-    val = min(5, val)
+def connect_storage(intensity : int = 1):
+    intensity = max(1, intensity)
+    intensity = min(5, intensity)
     
-    print("Intensity is", val)
+    print("Intensity is", intensity)
     
-    intensity = intensityFileAmount[val]
+    intensityLoop = intensityFileAmount[intensity]
     
-    for repeat in range(demoTime * 10):
+    for repeat in range(demoTime * 1000):
     
-        for i in range(intensity):
+        for i in range(intensityLoop):
             with open("glorp_clone_" + str(i + 1) + ".txt", "w") as file:
                 file.write("")
         
-        for i in range(intensity):
+        for i in range(intensityLoop):
             with open("glorp_clone_" + str(i + 1) + ".txt", "w") as file:
                 
-                with open("resources/glorp.txt", "r") as file2: #path for glorp not tested
+                with open("modules/resources/glorp.txt", "r") as file2: #path for glorp not tested
                     value = str(file2.read())
                     file.write(value)
         
-        time.sleep(0.1)
+        time.sleep(0.001)
+
+    return {"success": True, "message": f"Storage ready (intensity {intensity})"}
