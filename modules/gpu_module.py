@@ -1,3 +1,7 @@
+"""GPU module implementation (placeholder).
+
+Expose `connect_gpu(intensity:int) -> dict` for the UI to call.
+"""
 import time
 import random
 
