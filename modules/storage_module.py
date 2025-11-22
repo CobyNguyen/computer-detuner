@@ -14,15 +14,24 @@ def connect_storage(intensity : int = 1):
     
     for repeat in range(demoTime * 1000):
     
-        for i in range(intensityLoop):
+        for i in range(intensityLoop): #Goes through every file and removes the contents
             with open("glorp_clone_" + str(i + 1) + ".txt", "w") as file:
                 file.write("")
         
-        for i in range(intensityLoop):
+        for i in range(intensityLoop): #Creates a glorp cat image for every text file
             with open("glorp_clone_" + str(i + 1) + ".txt", "w") as file:
                 
-                with open("modules/resources/glorp.txt", "r") as file2: #path for glorp not tested
+                with open("modules/resources/glorp.txt", "r") as file2:
                     value = str(file2.read())
+                    file.write(value)
+                    file.write(value)
+                    file.write(value)
+                    file.write(value)
+                    file.write(value)
+                    file.write(value)
+                    file.write(value)
+                    file.write(value)
+                    file.write(value)
                     file.write(value)
         
         time.sleep(0.001)
