@@ -28,6 +28,3 @@ The main way we slow down your computer/program is by mining crypto. You get 0.0
 - Abvishek Chalise
 - Mark Oluoni
 - Daniel Brayne
-
-
-Join the Discord https://discord.gg/qD8BtXjs
